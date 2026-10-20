@@ -17,13 +17,14 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--color-ink);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
 }
 
-/* Sembunyikan Scrollbar secara Global (Tetap Bisa Dideret/Discroll) */
+/* Sembunyikan Scrollbar secara Global */
 ::-webkit-scrollbar {
   display: none;
 }
@@ -33,7 +34,6 @@ html, body, aside, main {
   scrollbar-width: none;  /* Firefox */
 }
 
-/* Class Utility opsional .no-scrollbar */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -41,4 +41,129 @@ html, body, aside, main {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* ==========================================================================
+   DARK MODE COLOR SYSTEM & COMPONENT OVERRIDES
+   ========================================================================== */
+html.dark {
+  color-scheme: dark;
+}
+
+/* Canvas & Base Container */
+html.dark body,
+html.dark main {
+  background-color: #0E0E15 !important;
+  color: #F3F4F6 !important;
+}
+
+/* Cards, Sidebars, Footers & White Containers */
+html.dark aside,
+html.dark .bg-white,
+html.dark footer {
+  background-color: #171723 !important;
+  color: #F3F4F6;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+/* Surface (Cards secondary, inputs, badges) */
+html.dark .bg-surface {
+  background-color: #212130 !important;
+  color: #F3F4F6 !important;
+}
+
+/* Text Colors */
+html.dark .text-ink {
+  color: #F3F4F6 !important;
+}
+
+html.dark .text-ink-light {
+  color: #9CA3AF !important;
+}
+
+/* Subtle Borders & Dividers */
+html.dark .border-ink\/5,
+html.dark .border-ink\/10,
+html.dark .border-ink\/15,
+html.dark .border-ink\/20 {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark .divide-ink\/10 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Brand Yellow Accent (Keep dark text for high contrast & WCAG readability) */
+html.dark .bg-brand,
+html.dark a.bg-brand,
+html.dark button.bg-brand {
+  color: #0E0E15 !important;
+}
+html.dark .bg-brand * {
+  color: #0E0E15 !important;
+}
+
+/* Progress bar background in dark mode */
+html.dark .bg-amber-100 {
+  background-color: #262636 !important;
+}
+
+/* Form inputs & textarea */
+html.dark input,
+html.dark textarea {
+  background-color: #212130 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #F3F4F6 !important;
+}
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #6B7280 !important;
+}
+html.dark input:focus,
+html.dark textarea:focus {
+  border-color: #FDB714 !important;
+  background-color: #262638 !important;
+}
+
+/* Hero 3D Badge Overlay in Dark Mode */
+html.dark .hero-3d-wrapper .bg-white\/95 {
+  background-color: rgba(23, 23, 35, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #F3F4F6 !important;
+}
+
+/* Right Navigation Buttons */
+html.dark .right-nav-btn.bg-surface {
+  background-color: #212130 !important;
+  color: #9CA3AF !important;
+}
+html.dark .right-nav-btn.bg-surface:hover {
+  background-color: #FDB714 !important;
+  color: #0E0E15 !important;
+}
+html.dark .right-nav-btn.bg-brand {
+  background-color: #FDB714 !important;
+  color: #0E0E15 !important;
+}
+
+/* Tooltips */
+html.dark #right-nav-container span.bg-ink {
+  background-color: #FFFFFF !important;
+  color: #0E0E15 !important;
+}
+
+/* Portfolio Filter Buttons */
+html.dark .portfolio-filter-btn:not(.bg-brand) {
+  background-color: #171723 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #9CA3AF !important;
+}
+html.dark .portfolio-filter-btn:not(.bg-brand):hover {
+  border-color: #FDB714 !important;
+  color: #FDB714 !important;
+}
+
+/* Blog fallback card background */
+html.dark .bg-slate-100 {
+  background-color: #212130 !important;
 }

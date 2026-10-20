@@ -23,8 +23,19 @@ const {
     <meta property="og:locale" content="id_ID" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <!-- Anti-flicker theme initialization script -->
+    <script is:inline>
+      (function() {
+        var stored = typeof localStorage !== 'undefined' ? localStorage.getItem('theme') : null;
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
     <!-- Preload hero image (LCP) -->
     <link rel="preload" as="image" href="/albar1.webp" fetchpriority="high" type="image/webp" />
     <!-- Preload Google Fonts -->
