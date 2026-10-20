@@ -1,0 +1,9 @@
+{
+  "title": "Website Resmi KJA MyTra (kjamytra.com)",
+  "cat": "Fullstack",
+  "color": "from-blue-600 to-indigo-800",
+  "tech": "Magang MyTra · Fullstack · Laravel · Tailwind CSS · Midtrans",
+  "image": "/mytra_landing.png",
+  "link": "https://kjamytra.com",
+  "order": 1
+}
